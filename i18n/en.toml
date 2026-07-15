@@ -1,0 +1,14 @@
+[posts.title]
+other = "Posts"
+
+[post.updated]
+other = "Updated"
+
+[notFound.title]
+other = "Page not found"
+
+[notFound.text]
+other = "This page does not exist. Go back to the"
+
+[notFound.homeLink]
+other = "home page"

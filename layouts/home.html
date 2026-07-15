@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ .Content }}
+<h3>{{ i18n "posts.title" }}</h3>
+{{ with site.GetPage "/posts" }}
+    {{- partial "post-list.html" .RegularPages -}}
+{{ end }}
+{{ end }}

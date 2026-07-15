@@ -1,0 +1,61 @@
+baseURL = "https://shender.org/"
+title = "Vadzim Shender"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+enableRobotsTXT = true
+
+# The site is single-language (English); this block keeps the configuration
+# compatible with adding a prefixed second language later without showing a
+# language switcher now.
+[languages.en]
+locale = "en"
+weight = 1
+
+[params]
+description = "Vadzim Shender's personal site: the craft of building software."
+copyright = "© 2026 Vadzim Shender"
+
+[permalinks.page]
+posts = "/:slug/"
+
+[taxonomies]
+tag = "tags"
+
+[outputs]
+home = ["html"]
+section = ["html", "rss"]
+taxonomy = ["html"]
+term = ["html", "rss"]
+
+[pagination]
+pagerSize = 20
+
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [["\\[", "\\]"], ["$$", "$$"]]
+inline = [["\\(", "\\)"]]
+
+[markup.highlight]
+noClasses = false
+
+[markup.goldmark.renderer]
+# ox-hugo emits raw HTML for some Org constructs.
+unsafe = true
+
+[[menus.main]]
+name = "Posts"
+pageRef = "/posts"
+weight = 10
+
+[[menus.main]]
+name = "Projects"
+pageRef = "/projects"
+weight = 20
+
+[[menus.main]]
+name = "About"
+pageRef = "/about"
+weight = 30

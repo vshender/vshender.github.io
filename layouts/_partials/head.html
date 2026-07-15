@@ -1,0 +1,37 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ with or .Description site.Params.description -}}
+    <meta name="description" content="{{ . }}">
+    {{ end -}}
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    {{/* Feed autodiscovery: the page's own feed (posts section, term pages)
+         plus the main posts feed everywhere else. */}}
+    {{ $ownFeed := .OutputFormats.Get "rss" -}}
+    {{ with $ownFeed -}}
+        {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Title | safeHTML }}
+    {{ end -}}
+    {{ with site.GetPage "/posts" -}}
+        {{ with .OutputFormats.Get "rss" -}}
+            {{ if or (not $ownFeed) (ne $ownFeed.Permalink .Permalink) -}}
+                {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+            {{ end -}}
+        {{ end -}}
+    {{ end }}
+
+    {{ $css := slice
+        (resources.Get "css/main.css")
+        (resources.Get "css/min770px.css")
+        (resources.Get "css/dark.css")
+        (resources.Get "css/syntax.css")
+        | resources.Concat "css/style.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+    {{ partial "math-css.html" . }}
+
+    {{ partial "opengraph.html" . }}
+    {{ partial "twitter_cards.html" . }}
+    {{ partial "analytics.html" . }}
+
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} — {{ site.Title }}{{ end }}</title>
+</head>

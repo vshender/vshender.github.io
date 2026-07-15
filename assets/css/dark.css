@@ -1,0 +1,65 @@
+@media (prefers-color-scheme: dark) {
+html {
+    scrollbar-color: #6c6c6c #2e2e2e;
+}
+
+body {
+    color: #ebebeb;
+    background: #121212;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+    outline-color: #21c7ff;
+}
+
+header#banner a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+header#banner nav ul li a {
+    color: #cccccc;
+}
+
+main#content a {
+    color: #00b1ed;
+}
+
+main#content p {
+    color: #f5f5f5;
+}
+
+main#content hr {
+    background: #5c5c5c;
+}
+
+main#content code {
+    background: #252a2e;
+}
+
+main#content pre code {
+    background: none;
+}
+
+main#content ul#posts small {
+    color: #a7a7a7;
+}
+
+main#content ul#posts li a:hover {
+    color: #21c7ff;
+}
+
+main#content header#post-header div {
+    color: #a7a7a7;
+}
+
+main#content #post-tags a {
+    color: #a7a7a7;
+}
+
+footer#footer a {
+    color: #a7a7a7;
+}
+}

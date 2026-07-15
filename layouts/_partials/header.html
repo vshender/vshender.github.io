@@ -1,0 +1,12 @@
+<header id="banner">
+    <h2><a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a></h2>
+    <nav>
+        <ul>
+            {{ range site.Menus.main.ByWeight -}}
+            <li>
+                <a href="{{ .URL }}">{{- .Name -}}</a>
+            </li>
+            {{- end }}
+        </ul>
+    </nav>
+</header>

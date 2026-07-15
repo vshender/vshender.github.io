@@ -1,0 +1,39 @@
+Third-party origins and adaptations
+===================================
+
+Etch (MIT)
+----------
+The Hugo templates in `layouts/` and the stylesheets in `assets/css/` are
+derived from the Etch theme by Lukas Joswiak:
+
+  https://github.com/LukasJoswiak/etch
+  commit b304186c260f574d281a495f5ceb4d8ac382cbe5
+
+Etch is used as a starter, not as a theme dependency: the needed templates and
+CSS were copied into this repository and are maintained here. License text:
+`LICENSES/Etch.txt`.
+
+Local adaptations of the Etch-derived layer:
+
+- templates renamed/restructured for the current Hugo template system
+  (post-0.146 lookup names, `layouts/_partials/`);
+- text column widened to about 70ch;
+- more prominent article title and larger section spacing;
+- blockquotes are not italicized;
+- inline-code styling; code blocks scroll horizontally;
+- visible focus styles;
+- page-specific description, canonical, Open Graph and Twitter Card metadata;
+- RSS autodiscovery for the posts feed and per-tag term feeds; the built-in
+  Hugo RSS template is used instead of Etch's `rss.xml`;
+- auto dark mode kept, the `dark = "on"/"off"` config switch dropped;
+- build-time math rendering (Goldmark passthrough + `transform.ToMath`).
+
+KaTeX (MIT)
+-----------
+`static/vendor/katex/` contains the KaTeX 0.16.21 stylesheet and fonts, used
+for build-time math rendering (no KaTeX JavaScript is shipped). License text:
+`LICENSES/KaTeX.txt`. The version matches the KaTeX version embedded in the
+Hugo release pinned in `.hugo-version` (`internal/warpc/js/package.json` at
+the Hugo tag). Only the `.woff2` fonts are vendored; the `.woff`/`.ttf`
+fallbacks referenced by `katex.min.css` are intentionally omitted, so font
+requests from very old browsers will 404.

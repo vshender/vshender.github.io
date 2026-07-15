@@ -1,0 +1,9 @@
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") -}}
+{{- with try (transform.ToMath .Inner $opts) -}}
+    {{- with .Err -}}
+        {{- errorf "Failed to render math: %s (page %q)" . $.Page.Path -}}
+    {{- else -}}
+        {{- .Value -}}
+        {{- $.Page.Store.Set "hasMath" true -}}
+    {{- end -}}
+{{- end -}}

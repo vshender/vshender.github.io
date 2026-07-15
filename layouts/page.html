@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article>
+    <header id="post-header">
+        <h1>{{ .Title }}</h1>
+        <div>
+        {{- if not .Date.IsZero -}}
+            {{ if .Lastmod.After .Date }}
+                <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ i18n "post.updated" }} {{ .Lastmod | time.Format ":date_long" }}</time>
+            {{ else }}
+                <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_long" }}</time>
+            {{ end }}
+        {{- end -}}
+        </div>
+    </header>
+    {{- .Content -}}
+    {{ with .GetTerms "tags" }}
+    <div id="post-tags">
+        {{ range . }}<a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>{{ end }}
+    </div>
+    {{ end }}
+</article>
+{{ end }}

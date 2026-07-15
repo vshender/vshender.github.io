@@ -1,0 +1,8 @@
+<footer id="footer">
+    <span>{{ site.Params.copyright }}</span>
+    {{ with site.GetPage "/posts" -}}
+        {{ with .OutputFormats.Get "rss" -}}
+        · <a href="{{ .RelPermalink }}">RSS</a>
+        {{ end -}}
+    {{ end }}
+</footer>

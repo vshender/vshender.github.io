@@ -1,0 +1,7 @@
+{{/* The KaTeX stylesheet is emitted only on pages that contain math. The
+     render-passthrough hook sets "hasMath" while rendering content, so
+     content rendering is forced before the store is read. */}}
+{{ $noop := .WordCount -}}
+{{ if .Store.Get "hasMath" -}}
+<link rel="stylesheet" href="{{ "vendor/katex/katex.min.css" | relURL }}">
+{{ end -}}
