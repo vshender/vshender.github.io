@@ -39,6 +39,14 @@ with no third-party requests:
   https://github.com/JetBrains/JetBrainsMono — license:
   `LICENSES/JetBrainsMono.txt`.
 
+GoatCounter count.js (ISC)
+--------------------------
+`static/vendor/goatcounter/count.js` is the GoatCounter counting script by
+Martin Tournoij, https://www.goatcounter.com, vendored so the site loads no
+scripts from third-party hosts (the beacon itself reports to
+vshender.goatcounter.com).  License text: `LICENSES/GoatCounter.txt`.  This
+beacon is the only JavaScript the site ships.
+
 KaTeX (MIT)
 -----------
 `static/vendor/katex/` contains the KaTeX 0.16.21 stylesheet and fonts, used

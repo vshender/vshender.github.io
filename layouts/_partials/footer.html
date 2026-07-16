@@ -4,5 +4,8 @@
         {{ with .OutputFormats.Get "rss" -}}
         · <a href="{{ .RelPermalink }}">RSS</a>
         {{ end -}}
+    {{ end -}}
+    {{ with site.GetPage "/privacy" -}}
+        · <a href="{{ .RelPermalink }}">Privacy</a>
     {{ end }}
 </footer>

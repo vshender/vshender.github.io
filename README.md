@@ -21,6 +21,6 @@ description: "..."     # one line for search snippets and link previews
 draft: true            # kept out of production
 ```
 
-Math (`\(...\)`, `$$...$$`) renders at build time to HTML+MathML — keep the site JavaScript-free.
+Math (`\(...\)`, `$$...$$`) renders at build time to HTML+MathML — no math JS.  The only JavaScript on the site is the [GoatCounter](https://www.goatcounter.com) analytics beacon (vendored `count.js`, plus a noscript pixel).
 
 Upgrading Hugo is its own change: bump `.hugo-version` + `HUGO_VERSION`/`HUGO_SHA256` in the deploy workflow + the local binary, then check a production build and how the site looks.

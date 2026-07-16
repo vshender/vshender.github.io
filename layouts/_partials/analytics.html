@@ -1,2 +1,10 @@
-{{/* Hook point for Cloudflare Web Analytics; intentionally empty until a
-     site token is provided after launch. */}}
+{{/* GoatCounter (privacy-friendly, no cookies).  count.js is vendored; the
+     beacon reports to vshender.goatcounter.com.  The noscript pixel counts
+     visitors with JavaScript disabled. */}}
+{{ if hugo.IsProduction -}}
+<script data-goatcounter="https://vshender.goatcounter.com/count"
+        async src="{{ "vendor/goatcounter/count.js" | relURL }}"></script>
+<noscript>
+    <img src="https://vshender.goatcounter.com/count?p={{ .RelPermalink }}" alt="">
+</noscript>
+{{ end -}}
