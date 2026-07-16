@@ -50,3 +50,13 @@ main#content pre {
     padding: 1.5rem 2.2rem;
 }
 }
+
+/* Wide screens: let a standard 80-column code line fit without scrolling.
+   86ch is measured in the pre's own monospace font: 80 columns plus padding. */
+@media (min-width: 900px) {
+main#content pre {
+    width: 86ch;
+    max-width: calc(100vw - 3rem);
+    margin-left: calc((100% - 86ch) / 2);
+}
+}

@@ -28,6 +28,17 @@ Local adaptations of the Etch-derived layer:
 - auto dark mode kept, the `dark = "on"/"off"` config switch dropped;
 - build-time math rendering (Goldmark passthrough + `transform.ToMath`).
 
+Fonts (SIL OFL 1.1)
+-------------------
+`static/vendor/fonts/` contains self-hosted webfonts, served from this site
+with no third-party requests:
+
+- Inter 4.1 (variable, normal + italic) by Rasmus Andersson,
+  https://github.com/rsms/inter — license: `LICENSES/Inter.txt`;
+- JetBrains Mono 2.304 (regular + bold) by JetBrains,
+  https://github.com/JetBrains/JetBrainsMono — license:
+  `LICENSES/JetBrainsMono.txt`.
+
 KaTeX (MIT)
 -----------
 `static/vendor/katex/` contains the KaTeX 0.16.21 stylesheet and fonts, used
